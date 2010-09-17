@@ -36,7 +36,7 @@ Bubbles.prototype.prepare = function () {
 Bubbles.prototype.render = function(ctx) {
     var c = this.canvas;
     
-	if(this.y < 25) {
+	if(this.y < 0) {
 		this.y = Math.floor(Utility.rand(view.canvas.height-20,view.canvas.height));
 		this.x = Math.floor(Utility.rand(view.canvas.width-80,view.canvas.width-90));
 	} else {
