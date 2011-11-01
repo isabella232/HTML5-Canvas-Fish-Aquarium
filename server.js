@@ -1,33 +1,52 @@
-var express = require('express'),
-    connect = require('connect');
+var options = {
+  port: 3200,
+  watched_files: undefined,
+  default_start_type: 'simple'
+};
 
-		
-// Create and export Express app
-var app = express.createServer();
+var cluster = require('cluster');
 
-app.set('development');
+var start = {
+  normal: function() {
+    cluster('./app/app')
+      .use(cluster.debug())
+      .use(cluster.reload())
+      .use(cluster.logger('logs', 'debug'))
+      .use(cluster.stats())
+      .use(cluster.pidfiles('pids'))
+      .use(cluster.cli())
+      .use(cluster.repl(8888))
+      .listen(options.port);
+  },
+  single: function() {
+    cluster('./app/app')
+      .set('workers', 1)
+      .set('respawn timeout', 500)
+      .set('respawn limit', 3)
+      .use(cluster.debug())
+      .use(cluster.reload())
+      .listen(options.port);
+  },
+  simple: function() {
+    var app = require('./app/app');
+    app.listen(options.port);
+  }
+};
 
-// Configuration
-app.use(connect.bodyDecoder());
-app.use(connect.methodOverride());
-//app.use(connect.gzip());
-app.use(connect.compiler({ src: __dirname + '/static', enable: ['sass'] }));
-app.use(connect.staticProvider(__dirname + '/static'));
+function kill_zombies() {
+  // remove any leftover sock files
+  var exec = require('child_process').exec;
+  exec("rm -f *.sock", function(err, stdout, stderr) {
+    console.log(stderr);
+    console.log(stdout);
+  });
+}
 
-app.configure('development', function(){
-    app.set('reload views', 1000);
-    app.use(connect.errorHandler({ dumpExceptions: true, showStack: true })); 
-});
+var start_type = process.argv[2] || options.default_start_type;
+console.log("Starting in mode '" + start_type + "'...");
 
-app.configure('production', function(){
-   app.use(connect.errorHandler()); 
-});
+console.log("Killing zombies...");
+kill_zombies();
 
-
-// Routes
-
-app.get('/', function(req, res) {
-	res.redirect('/index.html');
-});
-
-app.listen(3000);
+console.log("Opening server on port " + options.port + "...");
+start[start_type]();

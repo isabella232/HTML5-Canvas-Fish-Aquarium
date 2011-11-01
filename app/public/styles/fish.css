@@ -1,0 +1,112 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  color: #333;
+  font-family: 'Reenie Beanie', arial, serif;
+  font-size: 14px;
+  text-align: center;
+}
+#container {
+  position: relative;
+  background: #8fd2f3;
+/*width:100%;*/
+/*height:100%;*/
+  overflow: hidden;
+/*margin:10px;*/
+/*padding:10px;*/
+}
+#tank {
+  background: transparent;
+  position: relative;
+}
+#tank h1 {
+  font-size: 36px;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  text-align: right;
+  -moz-transform: rotate(1deg);
+  -moz-transform-origin: 0% 0%;
+  -webkit-transform: rotate(1deg);
+  -webkit-transform-origin: 0% 0%;
+}
+#tank_tape {
+  position: absolute;
+  background: #f9e1ac;
+  opacity: 0.6;
+  height: 50px;
+  width: 350px;
+  top: 45px;
+  right: 20px;
+  -moz-transform: rotate(2deg);
+  -moz-transform-origin: 0% 0%;
+  -webkit-transform: rotate(2deg);
+  -webkit-transform-origin: 0% 0%;
+}
+#tank_label {
+  position: absolute;
+  background: #ff0;
+  height: 100px;
+  width: 150px;
+  padding: 10px;
+  font-size: 30px;
+  top: 50px;
+  left: 50px;
+  -moz-transform: rotate(-10deg);
+  -moz-transform-origin: 0% 0%;
+  -webkit-transform: rotate(-10deg);
+  -webkit-transform-origin: 0% 0%;
+  -moz-box-shadow: 2px 2px 5px #666;
+  -webkit-box-shadow: 2px 2px 5px #666;
+}
+#tank_label_tape {
+  position: absolute;
+  background: #999;
+  opacity: 0.3;
+  height: 20px;
+  width: 50px;
+  top: 35px;
+  left: 90px;
+  z-index: 999;
+  -moz-transform: rotate(-9deg);
+  -moz-transform-origin: 0% 0%;
+  -webkit-transform: rotate(-9deg);
+  -webkit-transform-origin: 0% 0%;
+}
+#tank_hanger {
+  background: transparent;
+  overflow: hidden;
+  width: 1000px;
+  height: 75px;
+  position: absolute;
+  -moz-transform: rotate(-1deg);
+  -moz-transform-origin: 0% 0%;
+  -webkit-transform: rotate(-1deg);
+  -webkit-transform-origin: 0% 0%;
+}
+#tank_string {
+  position: absolute;
+  top: 282px;
+  left: 186px;
+  height: 400px;
+  width: 400px;
+  background: transparent;
+  border: 2px solid #333;
+  -moz-transform: rotate(-42deg);
+  -moz-transform-origin: 0% 0%;
+  -webkit-transform: rotate(-42deg);
+  -webkit-transform-origin: 0% 0%;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+}
+#tank_string_nail {
+  position: absolute;
+  top: 15px;
+  left: 480px;
+  background: #444;
+  border: 1px solid #000;
+  height: 10px;
+  width: 10px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
