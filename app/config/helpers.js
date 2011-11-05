@@ -5,7 +5,4 @@ exports = module.exports = function(server) {
     labs_url: server.set('labs')
   });
 
-  server.dynamicHelpers({
-    messages: require('express-messages')
-  });
 };
