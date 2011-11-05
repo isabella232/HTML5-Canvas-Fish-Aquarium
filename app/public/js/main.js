@@ -57,13 +57,13 @@ aquarium.prepare();
 // new Water(50, -13, 30, 15, 55);
 // new Water(45, -13, 32, 10, 50);
 
-new Plant(1);
-new Plant(1);
-new Plant(1);
-new Plant(1);
-new Plant(2);
-new Plant(2);
-new Plant(2);
+// new Plant(1);
+// new Plant(1);
+// new Plant(1);
+// new Plant(1);
+// new Plant(2);
+// new Plant(2);
+// new Plant(2);
 
 for (var i = view.canvas.height; i > 0 ; i-=Math.floor(Utility.rand(10,35))) {
 	new Bubbles(Utility.rand(view.canvas.width-80,view.canvas.width-90), i, 8);	

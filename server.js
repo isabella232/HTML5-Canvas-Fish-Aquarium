@@ -1,7 +1,7 @@
 var options = {
   port: 3200,
   watched_files: undefined,
-  default_start_type: 'simple'
+  default_start_type: 'normal'
 };
 
 var cluster = require('cluster');
@@ -9,6 +9,7 @@ var cluster = require('cluster');
 var start = {
   normal: function() {
     cluster('./app/app')
+      .set('workers', 1)
       .use(cluster.debug())
       .use(cluster.reload())
       .use(cluster.logger('logs', 'debug'))
