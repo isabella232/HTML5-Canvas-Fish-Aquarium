@@ -22,6 +22,7 @@ exports = module.exports = function(env) {
     },
     production: function() {
       this.labs = "http://173.230.134.69";
+      this.host = this.labs+':'+this.port;
     }
   };
   
