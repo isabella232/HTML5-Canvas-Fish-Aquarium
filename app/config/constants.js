@@ -13,7 +13,6 @@ exports = module.exports = function(env) {
       this.port = 3200;
       this.labs = 'http://localhost';
       this.host = this.labs+':'+this.port;
-      
       this.dumpExceptions = true;
       this.showStack = true;
       this.errorToHtml = true;
@@ -21,7 +20,7 @@ exports = module.exports = function(env) {
       this.mongo = { db: 'mongodb://localhost/fishies'};
     },
     production: function() {
-      this.labs = "http://173.230.134.69";
+      this.labs = "http://labs.skookum.com";
       this.host = this.labs+':'+this.port;
     }
   };
